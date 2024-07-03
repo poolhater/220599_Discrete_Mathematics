@@ -1,0 +1,2 @@
+This code is used for lexical analysis for a language.
+This should be runned in lex by using {filename}.l in terminal
