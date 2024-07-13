@@ -1,11 +1,11 @@
-	Note that file name is knpr.l and .knp is extension
-	Use the file as [ .l ] extension. (Check for .l.txt)
-	We can get C analyser by using flex 
-	Save the Flex specification to a file named knpr.l.
-	Run flex -o knpr.c knpr.l to get a C analyser file.
-	Compile the new C analyser like gcc -o knpr knpr.c -lfl 
-	Run with input as ./knpr < input.knp. Results in tokens.
-	Sometimes it is showing error then repeat the steps again.
-	{ This assignments code was done from the help of gfg , Stanford.edu and gpt }
-	Note: The code does not show count(didnt get it) but show line_num
+Note that file name is knpr.l and .knp is extension
+Use the file as [ .l ] extension. (Check for .l.txt)
+We can get C analyser by using flex 
+Save the Flex specification to a file named knpr.l.
+Run flex -o knpr.c knpr.l to get a C analyser file.
+Compile the new C analyser like gcc -o knpr knpr.c -lfl 
+Run with input as ./knpr < input.knp. Results in tokens.
+Sometimes it is showing error then repeat the steps again.
+{ This assignments code was done from the help of gfg , Stanford.edu and gpt }
+Note: The code does not show count(didnt get it) but show line_num
 
