@@ -4,6 +4,6 @@
 	Save the Flex specification to a file named knpr.l.
 	Run flex -o knpr.c knpr.l to get a C analyser file.
 	Compile the new C analyser like gcc -o knpr knpr.c -lfl 
-	Run with input as ./knpr < input.knp.
-	Sometimes it is showing error then try again
+	Run with input as ./knpr < input.knp. Results in tokens.
+	Sometimes it is showing error then repeat the steps again.
 	{ This assignments code was done from the help of gfg , Stanford.edu and gpt }
