@@ -7,5 +7,6 @@ Compile the new C analyser like gcc -o knpr knpr.c -lfl
 Run with input as ./knpr < input.knp. Results in tokens.
 Sometimes it is showing error then repeat the steps again.
 { This assignments code was done from the help of gfg , Stanford.edu and gpt }
-Note: The code does not show count(didnt get it) but show line_num
+Note: The code does not show count(didn't get it) but show line_num
+[ Not the expected solution]
 
