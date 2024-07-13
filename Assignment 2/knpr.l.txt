@@ -10,26 +10,26 @@ int line_num = 1;
 "/*"  { BEGIN(COMMENT); }
 <COMMENT>[^*]*\*+([^*/][^*]*\*+)* { /* Ignore multi-line comments */ }
 <COMMENT>"*/" { BEGIN(INITIAL); }
-<COMMENT><<EOF>> { fprintf(stderr, "Unterminated comment at line %d\n", line_num); }
+<COMMENT><<EOF>> { fprintf(stderr, "Unterminated comment at line %d\n", line_num++); }
 
 "ARRAY"|"BEGIN"|"BOOLEAN"|"COMMENT"|"CONTINUE"|"DO"|"DOUBLE"|"ELSE"|"END"|
 "FALSE"|"FOR"|"IF"|"INTEGER"|"LABEL"|"LIST"|"LONG"|"OWN"|"PROCEDURE"|"STEP"|"SWITCH"|
-"THEN"|"TRUE"|"UNTIL"|"VALUE"|"WHILE" { printf("KEYWORD %d %s\n", line_num, yytext); }
+"THEN"|"TRUE"|"UNTIL"|"VALUE"|"WHILE" { printf("KEYWORD %d %s\n", line_num++, yytext); }
 
-"AND"|"OR"|"LT"|"LEQ"|"GT"|"GEQ"|"NOT"|"EQL"|"NEQ"|:=|+|-|*|/|%|^|&|>>|<<|>=|<=| { printf("OPERATOR %d %s\n", line_num, yytext); }
+"AND"|"OR"|"LT"|"LEQ"|"GT"|"GEQ"|"NOT"|"EQL"|"NEQ"|:=|+|-|*|/|%|^|&|>>|<<|>=|<=| { printf("OPERATOR %d %s\n", line_num++, yytext); }
 
 [[:alpha:]][[:alnum:]]* { printf("IDENTIFIER %d %s\n", line_num, yytext); }
 
-\"([^\\\"]|\\.)*\"|\'([^\\\']|\\.)*\' { printf("STRING %d %s\n", line_num, yytext); }
+\"([^\\\"]|\\.)*\"|\'([^\\\']|\\.)*\' { printf("STRING %d %s\n", line_num++, yytext); }
 
-0[xX][0-9a-fA-F]+ { printf("HEXADECIMAL %d %s\n", line_num, yytext); }
-[0-9]+\.[0-9]+ { printf("FLOATING_POINT %d %s\n", line_num, yytext); }
-[0-9]+ { printf("INTEGER %d %s\n", line_num, yytext); }
+0[xX][0-9a-fA-F]+ { printf("HEXADECIMAL %d %s\n", line_num++, yytext); }
+[0-9]+\.[0-9]+ { printf("FLOATING_POINT %d %s\n", line_num++, yytext); }
+[0-9]+ { printf("INTEGER %d %s\n", line_num++, yytext); }
 
-[,\;:{}\[\]()] { printf("DELIMITER %d %s\n", line_num, yytext); }
+[,\;:{}\[\]()] { printf("DELIMITER %d %s\n", line_num++, yytext); }
 
 [ \t\n\r\f\v]+ { /* Ignore white space */ }
-. { printf("INVALID %d %s\n", line_num, yytext); }
+. { printf("INVALID %d %s\n", line_num++, yytext); }
 
 %%
 
